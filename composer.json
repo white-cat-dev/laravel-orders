@@ -1,0 +1,19 @@
+{
+    "name": "white-cat-dev/laravel-orders",
+    "description": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "white-cat-dev",
+            "email": "alexandra.19.98.study@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "version": "1.0.0",
+    "autoload": {
+    	"psr-4": {
+    		"WhiteCatDev\\LaravelOrders\\": ""
+    	}
+    }
+}
