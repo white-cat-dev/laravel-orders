@@ -6,6 +6,6 @@ return [
         'order' => WhiteCatDev\LaravelOrders\Models\Order::class,
     ],
     'routes' => [
-    	'prefix' => 'laravel-orders-api'
+    	'api-prefix' => 'laravel-orders-api'
     ]
 ];

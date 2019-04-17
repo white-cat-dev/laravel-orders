@@ -3,19 +3,25 @@
 namespace WhiteCatDev\LaravelOrders;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Collection;
 
 
 class LaravelOrdersServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->registerOrdersRoutes();
+        //
     }
 
 
     public function boot(Filesystem $filesystem)
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/laravel-orders.php', 'laravel-orders');
+
+        include __DIR__ . '/routes.php';
+        
 
         if ($this->app->runningInConsole())
         { 
@@ -25,21 +31,11 @@ class LaravelOrdersServiceProvider extends ServiceProvider
 
 
             $this->publishes([
-                __DIR__ . '/../database/migrations/create_orders_products_table.php' => $this->getMigrationFileName($filesystem, 'create_orders_products_table.php'),
-                __DIR__ . '/../database/migrations/create_orders_table.php' => $this->getMigrationFileName($filesystem, 'create_orders_table.php'),
-                __DIR__ . '/../database/migrations/create_products_table.php' => $this->getMigrationFileName($filesystem, 'create_products_table.php')
+                __DIR__ . '/../migrations/create_orders_products_table.php' => $this->getMigrationFileName($filesystem, 'create_orders_products_table.php'),
+                __DIR__ . '/../migrations/create_orders_table.php' => $this->getMigrationFileName($filesystem, 'create_orders_table.php'),
+                __DIR__ . '/../migrations/create_products_table.php' => $this->getMigrationFileName($filesystem, 'create_products_table.php')
             ], 'migrations');
         }
-    }
-
-
-    public function registerOrdersRoutes()
-    {
-        Route::prefix(config('laravel-orders.routes.prefix', 'laravel-orders-api'))
-             ->namespace('WhiteCatDev\LaravelOrders\Controllers')
-             ->group(function() {
-                //
-             });
     }
 
 
