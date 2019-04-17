@@ -20,7 +20,7 @@ class LaravelOrdersServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/laravel-orders.php', 'laravel-orders');
 
-        include __DIR__ . '/routes.php';
+        $this->loadRoutesFrom(__DIR__ . '/routes.php');
         
 
         if ($this->app->runningInConsole())
