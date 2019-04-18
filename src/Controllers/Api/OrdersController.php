@@ -3,6 +3,7 @@
 namespace WhiteCatDev\LaravelOrders\Controllers\Api;
 
 use Illuminate\Http\Request;
+use WhiteCatDev\LaravelOrders\Controllers\Controller;
 use WhiteCatDev\LaravelOrders\Services\OrdersService;
 
 
