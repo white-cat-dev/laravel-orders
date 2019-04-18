@@ -1,3 +1,5 @@
+<?php
+
 Route::prefix(config('laravel-orders.routes.api-prefix', 'laravel-orders-api'))
     ->namespace('WhiteCatDev\LaravelOrders\Controllers\Api')
     ->group(function() {
