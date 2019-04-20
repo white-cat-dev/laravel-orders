@@ -35,6 +35,12 @@ class LaravelOrdersServiceProvider extends ServiceProvider
                 __DIR__ . '/../migrations/create_orders_table.php' => $this->getMigrationFileName($filesystem, 'create_orders_table.php'),
                 __DIR__ . '/../migrations/create_products_table.php' => $this->getMigrationFileName($filesystem, 'create_products_table.php')
             ], 'migrations');
+
+
+            $this->publishes([
+                __DIR__  . '/../assets/orders.js' => resource_path(config('laravel-orders.assets.angularjs-path') + '/orders.js'),
+                __DIR__  . '/../assets/orders-resources.js' => resource_path(config('laravel-orders.assets.angularjs-path') + '/orders-resources.js')
+            ], 'angularjs');
         }
     }
 
